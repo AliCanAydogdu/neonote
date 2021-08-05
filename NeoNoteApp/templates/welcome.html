@@ -1,0 +1,41 @@
+{% extends 'base_visitor.html' %}
+
+{% load static %}
+
+
+
+{% block styles %}
+  <style media="screen">
+    .bg-image {
+      background-image: url("{% static 'welcome_bg2.jpg' %}");
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+    .bg-text {
+      text-align: center;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div class="bg-image">
+    <div class="bg-text">
+      <h1 style="font-size:50px">Uncover the hidden gems around the world.</h1>
+      <h3>Collect Memories</h3>
+      <a href="{% url 'NeoNoteApp:sign_up' %}"><button class="btn btn-light">Explore Now</button></a>
+
+    </div>
+  </div>
+{% endblock %}
+
+
+{% block scripts %}
+{% endblock %}

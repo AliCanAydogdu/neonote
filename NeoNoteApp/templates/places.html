@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block styles %}
+  <style media="screen">
+    body {
+      background-color: #B3E5FC;
+      border-radius: 10px
+    }
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      border: none;
+      margin: auto;
+      /* text-align: center; */
+      font-family: arial;
+    }
+
+    .rate {
+      color: grey;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+    span{
+      font-weight: bold;
+    }
+
+  </style>
+{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+
+  <div class="row mt-5 mb-5 d-flex justify-content-center">
+    <a href="{% url 'NeoNoteApp:new_place' %}">
+      <button class="btn btn-dark" name="button">Add New Place</button>
+    </a>
+  </div>
+  <!-- view 1 grid look-->
+  <h1 class="ml-5">My Places</h1>
+
+  <div class="row mt-3 ml-5">
+    {% for place in user_places %}
+      <div class="col-md-2">
+        <div class="card">
+          <img class="card-img-top" src="{{place.img.url}}" data-mfp-src="{{ place.img.url }}">
+          <div class="card-body">
+            <h5 class="card-title">{{place.place_name}}</h5>
+            <p class="card-text"><span>Note:</span> {{place.note}}</p>
+            <p><span>Address: </span>{{place.address}}</p>
+            <p class="rate"><span>Rate:</span> {{place.rate}} out of 5</p>
+            <p><span>Share</span></p>
+            <div class="sharethis-inline-share-buttons"></div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <br><hr><br>
+  <h1 class="ml-5">Group Places</h1>
+  <div class="row mt-3">
+    {% for place in group_places %}
+      <div class="col-md-2">
+        <div class="card">
+          <img class="card-img-top" src="{{place.img.url}}" data-mfp-src="{{ place.img.url }}">
+          <div class="card-body">
+            <h5 class="card-title">{{place.place_name}}</h5>
+            <p class="card-text"><span>Note:</span> {{place.note}}</p>
+            <p><span>Address: </span>{{place.address}}</p>
+            <p class="rate"><span>Rate:</span> {{place.rate}} out of 5</p>
+            <p><span>Share</span></p>
+            <div class="sharethis-inline-share-buttons"></div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+
+{% endblock %}
