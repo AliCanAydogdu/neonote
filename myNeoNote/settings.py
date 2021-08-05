@@ -14,7 +14,7 @@ SECRET_KEY = 'p-0w&-nsbd8yfax^&#pz@)vpl@+1n49j9s*sj2d26u1iq_6#xn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','']
+ALLOWED_HOSTS = ['127.0.0.1','neo-note.herokuapp.com/']
 
 
 # Application definition
